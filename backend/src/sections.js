@@ -1,0 +1,1 @@
+export const SECTIONS = ["Bestseller", "New Arrivals", "Top Products"]

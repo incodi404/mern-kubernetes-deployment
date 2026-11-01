@@ -1,0 +1,636 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: "Roboto", Arial, sans-serif;
+  --font-mono: ui-monospace, "Cascadia Code", "Segoe UI Mono", monospace;
+  --font-heading: var(--font-sans);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-brand-green: var(--brand-green);
+  --color-brand-green-hover: var(--brand-green-hover);
+  --color-brand-green-light: var(--brand-green-light);
+  --color-brand-green-border: var(--brand-green-border);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  /* Brand Theme Colors - Configurable Static Dark Green (Update here to change theme!) */
+  --brand-green: #fdc700;
+  --brand-green-hover: #fe9a00;
+  --brand-green-light: #ecfdf5;
+  --brand-green-border: #047857;
+  --brand-green-text: #0f172b;
+
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+
+  /* Dark mode brand green */
+  --brand-green: #10b981;
+  --brand-green-hover: #059669;
+  --brand-green-light: #064e3b33;
+  --brand-green-border: #10b981;
+  --brand-green-text: #ffffff;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  html {
+    @apply font-sans;
+  }
+}
+
+@layer utilities {
+  .bg-brand-green {
+    background-color: var(--brand-green);
+  }
+
+  .hover\:bg-brand-green-hover:hover {
+    background-color: var(--brand-green-hover);
+  }
+
+  .text-brand-green {
+    color: var(--brand-green);
+  }
+
+  .border-brand-green {
+    border-color: var(--brand-green-border);
+  }
+
+  .bg-brand-green-light {
+    background-color: var(--brand-green-light);
+  }
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+html::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+html {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+.bg-brand-green {
+  background-color: var(--brand-green);
+}
+
+button.bg-brand-green {
+  background-color: #bbf451;
+  color: #07362a;
+}
+
+button.bg-brand-green:hover {
+  background-color: #5ea500;
+  color: #fff;
+}
+
+.bg-brand-green-hero {
+  background-color: var(--brand-green);
+}
+
+.bg-brand-green:hover {
+  background-color: var(--brand-green-hover);
+}
+
+.text-brand-green {
+  color: var(--brand-green);
+}
+
+.border-brand-green {
+  border-color: var(--brand-green-border);
+}
+
+.bg-brand-green-light {
+  background-color: var(--brand-green-light);
+}
+
+/* ==========================================================================
+   📸 GALLERY & LIGHTBOX COMPLETE STYLES
+   ========================================================================== */
+
+/* Overall Page Layout Wrapper */
+.gallery-wrapper {
+  /* max-width: 1200px; */
+  margin: 0 auto;
+  /* padding: 40px 20px; */
+  /* font-family: system-ui, -apple-system, sans-serif; */
+}
+
+/* Header Text Styling */
+.gallery-header {
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.gallery-header h2 {
+  font-size: 2.5rem;
+  color: #1a1a1a;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.gallery-subtitle {
+  color: #666;
+  font-size: 1rem;
+}
+
+/* --------------------------------------------------------------------------
+   ⏳ STATUS LAYOUTS (LOADING / ERROR / EMPTY)
+   -------------------------------------------------------------------------- */
+
+.blog-content,
+.blog-content * {
+  font-family: sans-serif !important;
+}
+
+.gallery-status-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  gap: 16px;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* Loading Spinner Wheel */
+.spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3b82f6;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* Error UI Container */
+.error-card {
+  background: #fef2f2;
+  border: 1px solid #fca5a5;
+  padding: 24px;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 400px;
+}
+
+.error-text {
+  color: #991b1b;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.retry-btn {
+  background: #dc2626;
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.retry-btn:hover {
+  background: #b91c1c;
+}
+
+/* Empty Collection View */
+.empty-state {
+  text-align: center;
+  padding: 60px;
+  color: #888;
+  background: #f9f9f9;
+  border-radius: 12px;
+}
+
+/* --------------------------------------------------------------------------
+   🖼️ IMAGES GRID & CARDS
+   -------------------------------------------------------------------------- */
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.gallery-card {
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.card-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  background: #eaeaea;
+}
+
+.card-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+/* Zoom Image Slightly on Hover */
+.gallery-card:hover .card-image-wrapper img {
+  transform: scale(1.05);
+}
+
+/* Overlay overlay with text on hover */
+.card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card-overlay span {
+  color: white;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  backdrop-filter: blur(4px);
+}
+
+.gallery-card:hover .card-overlay {
+  opacity: 1;
+}
+
+.card-footer {
+  padding: 16px;
+  background: #fff;
+}
+
+.card-title {
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* --------------------------------------------------------------------------
+   🌌 LIGHTBOX MODAL OVERLAY
+   -------------------------------------------------------------------------- */
+
+/* Full Screen Dark Background */
+.lightbox-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(10, 10, 10, 0.90);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: fadeIn 0.25s ease-out;
+}
+
+/* Absolute Floating Close Button */
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 2.5rem;
+  cursor: pointer;
+  transition: color 0.2s;
+  z-index: 1010;
+}
+
+.close-btn:hover {
+  color: #fff;
+}
+
+/* White/Dark Pop-up Card Container */
+.lightbox-content {
+  position: relative;
+  max-width: 850px;
+  width: 100%;
+  background: #1c1c1e;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  animation: scaleUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Frame Restricting Massive Image Heights */
+.lightbox-image-container {
+  width: 100%;
+  max-height: 65vh;
+  display: flex;
+  background: #000;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-image-container img {
+  max-width: 100%;
+  max-height: 65vh;
+  object-fit: contain;
+}
+
+/* Cleaned up Details Panel (Always displays content instantly) */
+.lightbox-details {
+  background: #1c1c1e;
+  border-top: 1px solid #2c2c2e;
+  color: #ffffff;
+  padding: 20px 24px;
+}
+
+.details-header h3 {
+  margin: 0 0 8px 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.details-body {
+  border-top: 1px solid #2c2c2e;
+  padding-top: 10px;
+}
+
+.caption-text {
+  margin: 0;
+  color: #a1a1aa;
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+/* --------------------------------------------------------------------------
+   🎬 KEYFRAME ANIMATIONS
+   -------------------------------------------------------------------------- */
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Add to globals.css */
+@keyframes loading-bar {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  50% {
+    transform: translateX(150%);
+  }
+
+  100% {
+    transform: translateX(300%);
+  }
+}
+
+.animate-loading-bar {
+  animation: loading-bar 1.2s ease-in-out infinite;
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: -5%;
+  width: 110%;
+  height: 110%;
+  animation: kenburns 14s ease-in-out infinite alternate;
+  will-change: transform;
+  z-index: 0;
+}
+
+@keyframes kenburns {
+  0% {
+    transform: scale(1) translate(0, 0);
+  }
+
+  100% {
+    transform: scale(1.12) translate(-1.5%, -1%);
+  }
+}
+
+.mist-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 220%;
+  height: 100%;
+  opacity: 0.5;
+  filter: blur(2px);
+  pointer-events: none;
+  background-repeat: repeat-x;
+  background-size: 900px 100%;
+  z-index: 1;
+}
+
+.mist-1 {
+  top: 40%;
+  background-image: radial-gradient(ellipse 420px 140px at 20% 60%, rgba(255, 255, 255, .55), transparent 70%),
+    radial-gradient(ellipse 380px 120px at 60% 45%, rgba(255, 255, 255, .4), transparent 70%);
+  animation: drift 25s linear infinite;
+}
+
+.mist-2 {
+  top: 62%;
+  opacity: 0.35;
+  background-image: radial-gradient(ellipse 500px 160px at 30% 50%, rgba(255, 255, 255, .35), transparent 70%),
+    radial-gradient(ellipse 300px 110px at 75% 55%, rgba(255, 255, 255, .3), transparent 70%);
+  animation: drift 40s linear infinite reverse;
+}
+
+@keyframes drift {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.hero-vignette {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.05) 30%, rgba(0, 0, 0, 0.35) 100%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .hero-bg,
+  .mist-1,
+  .mist-2 {
+    animation: none !important;
+  }
+}
